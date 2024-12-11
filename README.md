@@ -1,7 +1,7 @@
-# market_research_agent
+# Market Research Agent
 Multi agentic system that builds out an engine that will look up content and summarize it in a document
 
-
+This agent takes the multi-hour process of market research and turns it into a 3 minute process.
 
 ## Set up
 You'll also need wkhtmltopdf installed on your system for PDF generation. You can install it:

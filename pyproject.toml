@@ -1,0 +1,113 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "research_agent"
+version = "0.1.0"
+description = "An AI-powered market research assistant"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Mike Pesavento", email = "mike@peztek.com" }
+]
+dependencies = [
+    "openai~=1.57.2",
+    "langchain~=0.3.11",
+    "langgraph~=0.2.58",
+    "langchain-core",
+    "langchain-openai",
+    "langchain-community",
+    "python-dotenv",
+    "aiosqlite",
+    "pygments",
+    "gradio",
+    "markdown",
+    "mdpdf",
+    "tavily-python",
+    "boto3",
+    "botocore",
+    "urllib3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "black",
+    "isort",
+    "mypy",
+    "ruff",
+    "pip-tools",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi-line_output = 3
+line_length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long, handled by black
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = [
+    "gradio.*",
+    "weasyprint.*",
+    "pdfkit.*",
+    "tavily.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+markers = [
+    "unit: mark test as a unit test",
+    "integration: mark test as an integration test"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/research_agent"
+"Bug Tracker" = "https://github.com/yourusername/research_agent/issues"
+
+[project.scripts]
+research-agent = "research_agent.app:main"

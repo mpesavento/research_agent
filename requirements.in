@@ -9,7 +9,10 @@ aiosqlite
 pygments
 gradio
 markdown
-pdfkit
+# mdpdf
+markdown-pdf
+# pdfkit
+# weasyprint
 markdown
 tavily-python
 boto3

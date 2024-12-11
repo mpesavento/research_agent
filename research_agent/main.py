@@ -76,15 +76,15 @@ def main():
         args = parse_args()
 
         # Get user input
-        query = """Conduct a comprehensive market analysis of wearable fitness trackers,
-focusing on current trends, major competitors, and consumer preferences.
-Pay special attention to emerging technologies and integration opportunities
-with personalized wellness coaching systems."""
-        print("Using query:")
-        print('---')
-        print(query)
-        print('---')
-        # query = input("\n🔍 Enter your market research query: ").strip()
+#         query = """Conduct a comprehensive market analysis of wearable fitness trackers,
+# focusing on current trends, major competitors, and consumer preferences.
+# Pay special attention to emerging technologies and integration opportunities
+# with personalized wellness coaching systems."""
+#         print("Using query:")
+#         print('---')
+#         print(query)
+#         print('---')
+        query = input("\n🔍 Enter your market research query: ").strip()
         if not query:
             print("\n❌ Query cannot be empty")
             return 1

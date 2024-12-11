@@ -78,6 +78,11 @@ test-integration:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+run:
+	$(PYTHON_INTERPRETER) research_agent/main.py
+
+run_ui:
+	$(PYTHON_INTERPRETER) research_agent/app.py
 
 
 #################################################################################
