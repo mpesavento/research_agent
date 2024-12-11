@@ -100,7 +100,7 @@ class MarketResearchOrchestrator:
             f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
             f"Query: {query}\n\n"
             + "-" * 50 + "\n\n"
-            f"{report}\n\n"
+            + f"{report}\n\n"
             + "-" * 50 + "\n"
         )
 

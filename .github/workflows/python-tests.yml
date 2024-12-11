@@ -20,6 +20,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         make requirements
+        pip install flake8
 
     - name: Lint
       run: make lint

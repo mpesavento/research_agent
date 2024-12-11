@@ -36,11 +36,20 @@ else
 	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
 endif
 
+## Compile requirements with pip-compile
+compile_reqs:
+	pip-compile requirements.in && \
+	pip-compile requirements_dev.in
+
+compile_reqs_update:
+	pip-compile -U requirements.in && \
+	pip-compile -U requirements_dev.in
 
 ## Install Python Dependencies
 requirements:
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel pip-tools
+	echo "Installing DEVELOPMENT requirements"
+	$(PYTHON_INTERPRETER) -m pip install -r requirements_dev.txt
 	$(PYTHON_INTERPRETER) -m pip install -e .
 
 
@@ -51,7 +60,7 @@ clean:
 
 ## Lint using flake8
 lint:
-	flake8 src
+	flake8 research_agent
 
 .PHONY: test test-integration
 

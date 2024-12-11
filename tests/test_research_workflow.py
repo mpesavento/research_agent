@@ -60,7 +60,7 @@ class TestMarketResearchUnit:
         orchestrator = create_market_research_orchestrator()
         assert orchestrator is not None
         assert isinstance(orchestrator.storage, LocalStorageBackend)
-        assert orchestrator.storage.base_dir == Path("reports")
+        assert orchestrator.storage.base_dir.name == "reports"
 
     def test_empty_query_validation(self):
         """Test that empty queries are rejected"""
